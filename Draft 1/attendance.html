@@ -1,0 +1,163 @@
+DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance - Smart Learning Hub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f4f8;
+        }
+        .progress-ring-circle {
+            transition: stroke-dashoffset 0.5s ease-in-out;
+            transform: rotate(-90deg);
+            transform-origin: 50% 50%;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+
+    <!-- Navigation Bar -->
+    <nav class="bg-white shadow-md fixed top-0 left-0 right-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <a href="lectures.html" class="flex items-center space-x-2">
+                        <svg class="h-8 w-8 text-cyan-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.627 48.627 0 0 1 12 20.904a48.627 48.627 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.57 50.57 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5" />
+                        </svg>
+                        <span class="text-xl font-bold text-gray-800">Smart Hub</span>
+                    </a>
+                </div>
+                <!-- Desktop Navigation Links -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="achievements.html" class="text-gray-600 hover:bg-cyan-600 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Achievements</a>
+                        <a href="attendance.html" class="bg-cyan-600 text-white px-3 py-2 rounded-md text-sm font-medium">Attendance</a>
+                        <a href="quiz.html" class="text-gray-600 hover:bg-cyan-600 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Quiz</a>
+                        <a href="resources.html" class="text-gray-600 hover:bg-cyan-600 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Resources</a>
+                    </div>
+                </div>
+                <!-- Mobile Menu Button -->
+                <div class="-mr-2 flex md:hidden">
+                    <button id="mobile-menu-button" type="button" class="bg-gray-800 inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
+                        <span class="sr-only">Open main menu</span>
+                        <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Main Content -->
+    <main class="pt-24 pb-12 min-h-screen flex items-center justify-center">
+        <div class="max-w-md w-full mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Attendance Card -->
+            <div class="bg-white rounded-2xl shadow-2xl p-8 text-center transform transition-all duration-500 hover:scale-105">
+                
+                <h1 class="text-2xl font-bold text-gray-800 mb-2">Attendance Record</h1>
+                <p class="text-gray-500 mb-8">Your overall attendance rate this semester.</p>
+
+                <!-- Progress Circle -->
+                <div class="relative inline-flex items-center justify-center mb-8">
+                    <svg class="w-48 h-48">
+                        <circle class="text-gray-200" stroke-width="12" stroke="currentColor" fill="transparent" r="80" cx="96" cy="96" />
+                        <circle id="progress-circle" class="text-cyan-500 progress-ring-circle" stroke-width="12" stroke-linecap="round" stroke="currentColor" fill="transparent" r="80" cx="96" cy="96" />
+                    </svg>
+                    <span id="attendance-percentage" class="absolute text-4xl font-extrabold text-cyan-600">...%</span>
+                </div>
+
+                <!-- Stats -->
+                <div class="flex justify-around text-center mb-8">
+                    <div>
+                        <p class="text-2xl font-bold text-gray-800" id="attended-classes">...</p>
+                        <p class="text-sm text-gray-500">Classes Attended</p>
+                    </div>
+                    <div>
+                        <p class="text-2xl font-bold text-gray-800" id="total-classes">...</p>
+                        <p class="text-sm text-gray-500">Total Classes</p>
+                    </div>
+                </div>
+
+                <!-- Message -->
+                <div class="bg-green-50 border-l-4 border-green-400 p-4 rounded-r-lg">
+                    <div class="flex">
+                        <div class="flex-shrink-0">
+                            <svg class="h-5 w-5 text-green-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                            </svg>
+                        </div>
+                        <div class="ml-3">
+                            <p class="text-sm text-green-700 text-left">
+                                Great job! Consistent attendance is a key step towards success.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- MOCK DATA ---
+            const attendanceData = {
+                percentage: 93.45,
+                attended: 140,
+                total: 150
+            };
+
+            // --- DOM ELEMENTS ---
+            const percentageEl = document.getElementById('attendance-percentage');
+            const attendedEl = document.getElementById('attended-classes');
+            const totalEl = document.getElementById('total-classes');
+            const circle = document.getElementById('progress-circle');
+            const radius = circle.r.baseVal.value;
+            const circumference = 2 * Math.PI * radius;
+
+            // --- RENDER FUNCTION ---
+            function setProgress(percent) {
+                const offset = circumference - (percent / 100) * circumference;
+                circle.style.strokeDasharray = `${circumference} ${circumference}`;
+                // Set initial offset to full circle
+                circle.style.strokeDashoffset = circumference;
+                // Animate to the correct offset
+                setTimeout(() => {
+                    circle.style.strokeDashoffset = offset;
+                }, 100); // Small delay to allow CSS transition to kick in
+            }
+
+            function renderAttendance() {
+                const percentage = attendanceData.percentage;
+                
+                // Update text content
+                percentageEl.textContent = `${percentage}%`;
+                attendedEl.textContent = attendanceData.attended;
+                totalEl.textContent = attendanceData.total;
+
+                // Update progress circle
+                setProgress(percentage);
+            }
+            
+            // --- EVENT LISTENERS ---
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            mobileMenuButton.addEventListener('click', () => {
+                // You would need to add the mobile menu div in the nav for it to toggle
+                // For now, this prevents an error if the mobile menu isn't implemented.
+                const mobileMenu = document.querySelector('#mobile-menu'); // A bit more robust selector
+                if(mobileMenu) mobileMenu.classList.toggle('hidden');
+            });
+
+            // --- INITIALIZATION ---
+            renderAttendance();
+        });
+    </script>
+</body>
+</html>

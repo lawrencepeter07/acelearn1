@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Dashboard - Smart Learning Hub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f4f8;
+        }
+        .sidebar-link {
+            transition: all 0.2s ease-in-out;
+        }
+        .sidebar-link:hover, .sidebar-link.active {
+            background-color: #0891b2; /* cyan-700 */
+            color: white;
+            transform: translateX(4px);
+        }
+    </style>
+</head>
+<body>
+    <div class="flex h-screen bg-gray-100">
+        <!-- Sidebar -->
+        <aside class="w-64 flex-shrink-0 bg-cyan-800 text-cyan-100 p-4 flex flex-col">
+            <div class="flex items-center space-x-2 pb-4 border-b border-cyan-700">
+                <svg class="h-8 w-8 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.627 48.627 0 0 1 12 20.904a48.627 48.627 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.57 50.57 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5" /></svg>
+                <span class="text-xl font-bold text-white">Teacher Hub</span>
+            </div>
+            <nav class="mt-6 flex-1">
+                <a href="#dashboard" data-section="dashboard" class="sidebar-link active flex items-center space-x-3 px-4 py-3 rounded-lg"><span>Dashboard</span></a>
+                <a href="#lectures" data-section="lectures" class="sidebar-link flex items-center space-x-3 px-4 py-3 rounded-lg"><span>Manage Lectures</span></a>
+                <a href="#assignments" data-section="assignments" class="sidebar-link flex items-center space-x-3 px-4 py-3 rounded-lg"><span>Assignments & Quizzes</span></a>
+                <a href="#attendance" data-section="attendance" class="sidebar-link flex items-center space-x-3 px-4 py-3 rounded-lg"><span>Attendance</span></a>
+                <a href="#progress" data-section="progress" class="sidebar-link flex items-center space-x-3 px-4 py-3 rounded-lg"><span>Student Progress</span></a>
+                <a href="#announcements" data-section="announcements" class="sidebar-link flex items-center space-x-3 px-4 py-3 rounded-lg"><span>Announcements</span></a>
+            </nav>
+            <div class="pt-4 border-t border-cyan-700">
+                <a href="teacher_login.html" class="sidebar-link flex items-center space-x-3 px-4 py-3 rounded-lg"><span>Logout</span></a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 p-6 md:p-8 overflow-y-auto">
+            
+            <!-- SECTION: Dashboard -->
+            <section id="dashboard" class="content-section">
+                <h1 class="text-3xl font-bold text-gray-800 mb-6">Welcome, Teacher!</h1>
+                
+                <!-- Top Stat Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+                    <div class="bg-white p-6 rounded-lg shadow-md flex items-center space-x-4">
+                        <div class="bg-cyan-100 p-3 rounded-full"><svg class="h-6 w-6 text-cyan-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></div>
+                        <div>
+                            <p class="text-sm text-gray-500">Overall Performance</p>
+                            <p class="text-2xl font-bold text-gray-800">85%</p>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md flex items-center space-x-4">
+                        <div class="bg-green-100 p-3 rounded-full"><svg class="h-6 w-6 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></div>
+                        <div>
+                            <p class="text-sm text-gray-500">Attendance This Month</p>
+                            <p class="text-2xl font-bold text-gray-800">92%</p>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md flex items-center space-x-4">
+                        <div class="bg-orange-100 p-3 rounded-full"><svg class="h-6 w-6 text-orange-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg></div>
+                        <div>
+                            <p class="text-sm text-gray-500">Pending Submissions</p>
+                            <p class="text-2xl font-bold text-gray-800">12</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Main Dashboard Content -->
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    <!-- Left Column: Recent Submissions -->
+                    <div class="lg:col-span-2 bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="font-bold text-xl text-gray-800 mb-4">Recent Submissions to Grade</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between p-3 rounded-lg hover:bg-gray-50">
+                                <p><span class="font-semibold">Priya Sharma</span> submitted "English Essay"</p>
+                                <button class="text-sm bg-cyan-600 text-white font-semibold py-1 px-3 rounded-full hover:bg-cyan-700">View & Grade</button>
+                            </div>
+                             <div class="flex items-center justify-between p-3 rounded-lg hover:bg-gray-50">
+                                <p><span class="font-semibold">Arjun Verma</span> submitted "Math Quiz #2"</p>
+                                <button class="text-sm bg-cyan-600 text-white font-semibold py-1 px-3 rounded-full hover:bg-cyan-700">View & Grade</button>
+                            </div>
+                             <div class="flex items-center justify-between p-3 rounded-lg hover:bg-gray-50">
+                                <p><span class="font-semibold">Aisha Khan</span> submitted "Science Lab Report"</p>
+                                <button class="text-sm bg-cyan-600 text-white font-semibold py-1 px-3 rounded-full hover:bg-cyan-700">View & Grade</button>
+                            </div>
+                             <div class="flex items-center justify-between p-3 rounded-lg hover:bg-gray-50">
+                                <p><span class="font-semibold">Vikram Reddy</span> submitted "Punjabi Homework"</p>
+                                <button class="text-sm bg-cyan-600 text-white font-semibold py-1 px-3 rounded-full hover:bg-cyan-700">View & Grade</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Deadlines & Announcements -->
+                    <div class="space-y-6">
+                        <div class="bg-white p-6 rounded-lg shadow-md">
+                             <h3 class="font-bold text-xl text-gray-800 mb-4">Upcoming Deadlines</h3>
+                             <ul class="space-y-3">
+                                 <li class="flex items-center space-x-3"><span class="bg-red-500 w-2 h-2 rounded-full"></span><p><strong>Math Assignment #3:</strong> Due Today</p></li>
+                                 <li class="flex items-center space-x-3"><span class="bg-yellow-500 w-2 h-2 rounded-full"></span><p><strong>Science Project:</strong> Due in 3 days</p></li>
+                                 <li class="flex items-center space-x-3"><span class="bg-green-500 w-2 h-2 rounded-full"></span><p><strong>English Quiz:</strong> Due in 1 week</p></li>
+                             </ul>
+                        </div>
+                         <div class="bg-white p-6 rounded-lg shadow-md">
+                             <h3 class="font-bold text-xl text-gray-800 mb-4">Recent Announcements</h3>
+                             <ul class="space-y-2 text-sm text-gray-600">
+                                 <li class="border-l-4 border-cyan-500 pl-3"><strong>Math Exam Date:</strong> The final exam will be on Oct 15...</li>
+                                 <li class="border-l-4 border-cyan-500 pl-3"><strong>Holiday Notice:</strong> The school will be closed on Oct 2...</li>
+                             </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- SECTION: Manage Lectures -->
+            <section id="lectures" class="content-section hidden">
+                <h1 class="text-3xl font-bold text-gray-800 mb-6">Manage Lectures & Resources</h1>
+                <div class="bg-white p-6 rounded-lg shadow-md mb-6">
+                    <h3 class="font-bold text-xl mb-4">Add New Material</h3>
+                    <form class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <input type="text" placeholder="Title" class="p-2 border rounded">
+                        <select class="p-2 border rounded">
+                            <option>Punjabi</option> <option>Math</option> <option>English</option> <option>Science</option>
+                        </select>
+                        <select class="p-2 border rounded">
+                            <option>YouTube Video</option> <option>PDF Resource</option>
+                        </select>
+                        <input type="text" placeholder="YouTube Link or PDF URL" class="p-2 border rounded">
+                        <button type="submit" class="md:col-span-2 w-full bg-cyan-600 text-white font-bold py-2 px-4 rounded hover:bg-cyan-700">Add Material</button>
+                    </form>
+                </div>
+                 <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="font-bold text-xl mb-4">Existing Materials</h3>
+                    <ul class="space-y-2">
+                        <li class="flex justify-between items-center p-2 border-b"><span>Math: Algebra Basics (Video)</span><div><button class="text-blue-500 mr-2">Edit</button><button class="text-red-500">Delete</button></div></li>
+                        <li class="flex justify-between items-center p-2 border-b"><span>Science: Periodic Table (PDF)</span><div><button class="text-blue-500 mr-2">Edit</button><button class="text-red-500">Delete</button></div></li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- SECTION: Assignments & Quizzes -->
+            <section id="assignments" class="content-section hidden">
+                 <h1 class="text-3xl font-bold text-gray-800 mb-6">Assignments & Quizzes</h1>
+                 <div class="bg-white p-6 rounded-lg shadow-md mb-6">
+                    <h3 class="font-bold text-xl mb-4">Create New Assignment/Quiz</h3>
+                     <form class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <input type="text" placeholder="Title" class="p-2 border rounded">
+                        <input type="date" class="p-2 border rounded">
+                        <select class="p-2 border rounded">
+                            <option>Punjabi</option> <option>Math</option> <option>English</option> <option>Science</option>
+                        </select>
+                        <input type="file" class="p-1 border rounded text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-cyan-50 file:text-cyan-700 hover:file:bg-cyan-100">
+                        <button type="submit" class="md:col-span-2 w-full bg-cyan-600 text-white font-bold py-2 px-4 rounded hover:bg-cyan-700">Create</button>
+                    </form>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="font-bold text-xl mb-4">Active Assignments</h3>
+                    <ul class="space-y-2">
+                        <li class="flex justify-between items-center p-2 border-b"><span>English: Essay Writing</span><span>Submissions: 15 / 20</span></li>
+                        <li class="flex justify-between items-center p-2 border-b"><span>Math: Algebra Quiz</span><span>Submissions: 8 / 20</span></li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- SECTION: Attendance -->
+            <section id="attendance" class="content-section hidden">
+                <h1 class="text-3xl font-bold text-gray-800 mb-6">Attendance Management</h1>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex justify-between items-center mb-4">
+                        <h3 class="font-bold text-xl">Mark Attendance for Today</h3>
+                         <input type="date" value="2025-09-25" class="p-2 border rounded">
+                    </div>
+                     <table class="w-full text-left">
+                        <thead><tr class="border-b"><th class="p-2">Student Name</th><th class="p-2">Status</th></tr></thead>
+                        <tbody>
+                             <tr class="border-b"><td class="p-2">Rohan Singh</td><td class="p-2"><label><input type="checkbox" checked> Present</label></td></tr>
+                             <tr class="border-b"><td class="p-2">Priya Sharma</td><td class="p-2"><label><input type="checkbox" checked> Present</label></td></tr>
+                             <tr class="border-b"><td class="p-2">Arjun Verma</td><td class="p-2"><label><input type="checkbox"> Present</label></td></tr>
+                             <tr class="border-b"><td class="p-2">Aisha Khan</td><td class="p-2"><label><input type="checkbox" checked> Present</label></td></tr>
+                             <tr class="border-b"><td class="p-2">Vikram Reddy</td><td class="p-2"><label><input type="checkbox" checked> Present</label></td></tr>
+                             <tr class="border-b"><td class="p-2">Ananya Gupta</td><td class="p-2"><label><input type="checkbox"> Present</label></td></tr>
+                             <tr class="border-b"><td class="p-2">Siddharth Menon</td><td class="p-2"><label><input type="checkbox" checked> Present</label></td></tr>
+                             <tr class="border-b"><td class="p-2">Neha Joshi</td><td class="p-2"><label><input type="checkbox" checked> Present</label></td></tr>
+                             <tr class="border-b"><td class="p-2">Aditya Kumar</td><td class="p-2"><label><input type="checkbox" checked> Present</label></td></tr>
+                             <tr class="border-b"><td class="p-2">Kavya Patel</td><td class="p-2"><label><input type="checkbox"> Present</label></td></tr>
+                             <tr class="border-b"><td class="p-2">Sameer Ali</td><td class="p-2"><label><input type="checkbox" checked> Present</label></td></tr>
+                             <tr class="border-b"><td class="p-2">Diya Nair</td><td class="p-2"><label><input type="checkbox" checked> Present</label></td></tr>
+                        </tbody>
+                    </table>
+                    <div class="mt-6 flex space-x-4">
+                        <button class="w-full bg-cyan-600 text-white font-bold py-2 px-4 rounded hover:bg-cyan-700">Submit Attendance</button>
+                        <button class="w-full bg-gray-200 text-gray-800 font-bold py-2 px-4 rounded hover:bg-gray-300">Upload CSV</button>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- SECTION: Student Progress -->
+            <section id="progress" class="content-section hidden">
+                 <h1 class="text-3xl font-bold text-gray-800 mb-6">Track Student Progress</h1>
+                 <div class="bg-white p-6 rounded-lg shadow-md overflow-x-auto">
+                     <table class="w-full text-left">
+                        <thead><tr class="border-b bg-gray-50"><th class="p-3">Student</th><th class="p-3">Attendance</th><th class="p-3">Avg. Quiz Score</th><th class="p-3">Actions</th></tr></thead>
+                        <tbody>
+                             <tr class="border-b"><td class="p-3">Rohan Singh</td><td class="p-3">95%</td><td class="p-3">88%</td><td class="p-3"><button class="text-cyan-600 font-semibold">Generate Report</button></td></tr>
+                             <tr class="border-b"><td class="p-3">Priya Sharma</td><td class="p-3">98%</td><td class="p-3">92%</td><td class="p-3"><button class="text-cyan-600 font-semibold">Generate Report</button></td></tr>
+                             <tr class="border-b"><td class="p-3">Arjun Verma</td><td class="p-3">82%</td><td class="p-3">75%</td><td class="p-3"><button class="text-cyan-600 font-semibold">Generate Report</button></td></tr>
+                             <tr class="border-b"><td class="p-3">Aisha Khan</td><td class="p-3">91%</td><td class="p-3">85%</td><td class="p-3"><button class="text-cyan-600 font-semibold">Generate Report</button></td></tr>
+                             <tr class="border-b"><td class="p-3">Vikram Reddy</td><td class="p-3">88%</td><td class="p-3">81%</td><td class="p-3"><button class="text-cyan-600 font-semibold">Generate Report</button></td></tr>
+                             <tr class="border-b"><td class="p-3">Ananya Gupta</td><td class="p-3">96%</td><td class="p-3">94%</td><td class="p-3"><button class="text-cyan-600 font-semibold">Generate Report</button></td></tr>
+                             <tr class="border-b"><td class="p-3">Siddharth Menon</td><td class="p-3">78%</td><td class="p-3">70%</td><td class="p-3"><button class="text-cyan-600 font-semibold">Generate Report</button></td></tr>
+                             <tr class="border-b"><td class="p-3">Neha Joshi</td><td class="p-3">99%</td><td class="p-3">95%</td><td class="p-3"><button class="text-cyan-600 font-semibold">Generate Report</button></td></tr>
+                             <tr class="border-b"><td class="p-3">Aditya Kumar</td><td class="p-3">85%</td><td class="p-3">80%</td><td class="p-3"><button class="text-cyan-600 font-semibold">Generate Report</button></td></tr>
+                             <tr class="border-b"><td class="p-3">Kavya Patel</td><td class="p-3">93%</td><td class="p-3">89%</td><td class="p-3"><button class="text-cyan-600 font-semibold">Generate Report</button></td></tr>
+                             <tr class="border-b"><td class="p-3">Sameer Ali</td><td class="p-3">80%</td><td class="p-3">78%</td><td class="p-3"><button class="text-cyan-600 font-semibold">Generate Report</button></td></tr>
+                             <tr class="border-b"><td class="p-3">Diya Nair</td><td class="p-3">97%</td><td class="p-3">91%</td><td class="p-3"><button class="text-cyan-600 font-semibold">Generate Report</button></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- SECTION: Announcements -->
+            <section id="announcements" class="content-section hidden">
+                <h1 class="text-3xl font-bold text-gray-800 mb-6">Post an Announcement</h1>
+                <div class="bg-white p-6 rounded-lg shadow-md mb-6">
+                    <form class="space-y-4">
+                        <input type="text" placeholder="Announcement Title" class="w-full p-2 border rounded">
+                        <textarea placeholder="Write your announcement here..." rows="4" class="w-full p-2 border rounded"></textarea>
+                        <button type="submit" class="w-full bg-cyan-600 text-white font-bold py-2 px-4 rounded hover:bg-cyan-700">Post Announcement</button>
+                    </form>
+                </div>
+                 <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="font-bold text-xl mb-4">Recent Announcements</h3>
+                     <ul class="space-y-3">
+                        <li class="p-3 border rounded-lg bg-cyan-50"><strong>Math Exam Date:</strong> The final exam for Math will be on Oct 15.</li>
+                        <li class="p-3 border rounded-lg"><strong>Holiday Notice:</strong> The school will be closed on Oct 2 for a national holiday.</li>
+                    </ul>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const sidebarLinks = document.querySelectorAll('.sidebar-link');
+            const contentSections = document.querySelectorAll('.content-section');
+
+            function showSection(sectionId) {
+                contentSections.forEach(section => {
+                    if (section.id === sectionId) {
+                        section.classList.remove('hidden');
+                    } else {
+                        section.classList.add('hidden');
+                    }
+                });
+
+                sidebarLinks.forEach(link => {
+                    if (link.dataset.section === sectionId) {
+                        link.classList.add('active');
+                    } else {
+                        link.classList.remove('active');
+                    }
+                });
+            }
+
+            sidebarLinks.forEach(link => {
+                link.addEventListener('click', (event) => {
+                    if (link.dataset.section) {
+                        event.preventDefault();
+                        const sectionId = link.dataset.section;
+                        showSection(sectionId);
+                        window.location.hash = sectionId;
+                    }
+                });
+            });
+
+            const initialSection = window.location.hash.substring(1) || 'dashboard';
+            showSection(initialSection);
+        });
+    </script>
+</body>
+</html>

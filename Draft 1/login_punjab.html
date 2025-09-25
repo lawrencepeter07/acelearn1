@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ਲੌਗਇਨ - ਸਮਾਰਟ ਲਰਨਿੰਗ ਹੱਬ</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Paaji+2:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Baloo Paaji 2', sans-serif;
+            background-color: #f0f2f5;
+            background-image:
+                radial-gradient(at 47% 33%, hsl(200.00, 0%, 100%) 0, transparent 59%),
+                radial-gradient(at 82% 65%, hsl(215.00, 100%, 78%) 0, transparent 55%);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-4">
+
+    <!-- Login Card -->
+    <div class="w-full max-w-md bg-white/70 backdrop-blur-xl rounded-2xl shadow-2xl p-8 space-y-6">
+        
+        <!-- Header -->
+        <div class="text-center">
+            <h1 class="text-3xl font-bold text-gray-800">ਜੀ ਆਇਆਂ ਨੂੰ!</h1>
+            <p class="text-gray-600 mt-2">ਜਾਰੀ ਰੱਖਣ ਲਈ ਕਿਰਪਾ ਕਰਕੇ ਸਾਈਨ ਇਨ ਕਰੋ।</p>
+        </div>
+
+        <!-- Form -->
+        <form id="login-form" class="space-y-6">
+            <!-- Email Input -->
+            <div>
+                <label for="email" class="text-sm font-medium text-gray-700 block mb-2">ਈਮੇਲ ਪਤਾ</label>
+                <div class="relative">
+                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                        <svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" /><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" /></svg>
+                    </div>
+                    <input type="email" id="email" name="email" class="w-full pl-10 pr-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="ਤੁਸੀਂ@example.com">
+                </div>
+            </div>
+
+            <!-- Password Input -->
+            <div>
+                <div class="flex justify-between items-center mb-2">
+                    <label for="password" class="text-sm font-medium text-gray-700">ਪਾਸਵਰਡ</label>
+                    <a href="#" class="text-sm text-blue-600 hover:underline">ਪਾਸਵਰਡ ਭੁੱਲ ਗਏ?</a>
+                </div>
+                <div class="relative">
+                     <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                        <svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 1a4.5 4.5 0 00-4.5 4.5V9H5a2 2 0 00-2 2v6a2 2 0 002 2h10a2 2 0 002-2v-6a2 2 0 00-2-2h-.5V5.5A4.5 4.5 0 0010 1zm3 8V5.5a3 3 0 10-6 0V9h6z" clip-rule="evenodd" /></svg>
+                    </div>
+                    <input type="password" id="password" name="password" class="w-full pl-10 pr-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="••••••••">
+                </div>
+            </div>
+
+            <!-- Login Button -->
+            <div>
+                <button type="submit" class="w-full bg-blue-600 text-white font-semibold py-2.5 px-4 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 shadow-lg">
+                    ਸਾਈਨ ਇਨ ਕਰੋ
+                </button>
+            </div>
+        </form>
+
+        <!-- Social Login and other elements here... -->
+
+    </div>
+
+    <script>
+        document.getElementById('login-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            window.location.href = 'lectures.punjabi.html'; // We will create this page next
+        });
+    </script>
+
+</body>
+</html>

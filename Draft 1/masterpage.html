@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome / ਜੀ ਆਇਆਂ ਨੂੰ - Smart Learning Hub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- We need both fonts now: Inter for English and Baloo Paaji 2 for Punjabi -->
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Paaji+2:wght@400;700&family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
+    <style>
+        .font-inter { font-family: 'Inter', sans-serif; }
+        .font-punjabi { font-family: 'Baloo Paaji 2', sans-serif; }
+        body {
+            background-color: #f0f4f8;
+            background-image:
+                radial-gradient(at 20% 25%, hsl(190.00, 0%, 95%) 0, transparent 50%),
+                radial-gradient(at 80% 75%, hsl(200.00, 100%, 90%) 0, transparent 50%);
+        }
+        .card-hover:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-4 font-inter">
+
+    <div class="text-center w-full max-w-3xl">
+        
+        <!-- Header in both languages -->
+        <div class="mb-12">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-gray-800 mb-2">Welcome / <span class="font-punjabi">ਜੀ ਆਇਆਂ ਨੂੰ</span></h1>
+            <p class="text-lg text-gray-600">Please select your language / <span class="font-punjabi">ਕਿਰਪਾ ਕਰਕੇ ਆਪਣੀ ਭਾਸ਼ਾ ਚੁਣੋ</span></p>
+        </div>
+
+        <!-- Language Selection Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+            
+            <!-- English Card -->
+            <a href="opening.html" class="card-hover bg-white/80 backdrop-blur-xl rounded-2xl shadow-lg p-8 transition-all duration-300 ease-in-out cursor-pointer flex flex-col items-center justify-center">
+                <div class="text-6xl mb-4"></div>
+                <h2 class="text-3xl font-bold text-gray-900 mb-1">English</h2>
+                <p class="text-gray-500">Continue in English</p>
+            </a>
+
+            <!-- Punjabi Card -->
+            <a href="role_section_punjab.html" class="card-hover bg-white/80 backdrop-blur-xl rounded-2xl shadow-lg p-8 transition-all duration-300 ease-in-out cursor-pointer flex flex-col items-center justify-center font-punjabi">
+                 <div class="text-6xl mb-4"></div>
+                 <h2 class="text-3xl font-bold text-gray-900 mb-1">ਪੰਜਾਬੀ</h2>
+                 <p class="text-gray-500">ਪੰਜਾਬੀ ਵਿੱਚ ਜਾਰੀ ਰੱਖੋ</p>
+            </a>
+        </div>
+    </div>
+
+</body>
+</html>
+

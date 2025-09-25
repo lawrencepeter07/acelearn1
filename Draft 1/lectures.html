@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lectures - Smart Learning Hub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Custom scrollbar for a cleaner look */
+        .horizontal-scroll::-webkit-scrollbar {
+            height: 8px;
+        }
+        .horizontal-scroll::-webkit-scrollbar-track {
+            background: #f1f5f9;
+            border-radius: 10px;
+        }
+        .horizontal-scroll::-webkit-scrollbar-thumb {
+            background: #94a3b8;
+            border-radius: 10px;
+        }
+        .horizontal-scroll::-webkit-scrollbar-thumb:hover {
+            background: #64748b;
+        }
+    </style>
+</head>
+<body class="bg-slate-100">
+
+    <!-- Navigation Bar -->
+    <nav class="bg-white shadow-md fixed top-0 left-0 right-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <a href="#" class="flex items-center space-x-2">
+                        <svg class="h-8 w-8 text-cyan-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.627 48.627 0 0 1 12 20.904a48.627 48.627 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.57 50.57 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5" />
+                        </svg>
+                        <span class="text-xl font-bold text-gray-800">Ace learn</span>
+                    </a>
+                </div>
+                <!-- Desktop Navigation Links -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="achievements.html" class="text-gray-600 hover:bg-cyan-600 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Achievements</a>
+                        <a href="attendance.html" class="text-gray-600 hover:bg-cyan-600 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Attendance</a>
+                        <a href="quiz.html" class="text-gray-600 hover:bg-cyan-600 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Quiz</a>
+                        <a href="resources.html" class="text-gray-600 hover:bg-cyan-600 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Resources</a>
+                    </div>
+                </div>
+                <!-- Mobile Menu Button -->
+                <div class="-mr-2 flex md:hidden">
+                    <button id="mobile-menu-button" type="button" class="bg-gray-800 inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
+                        <span class="sr-only">Open main menu</span>
+                        <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                        <svg class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu, show/hide based on menu state. -->
+        <div class="md:hidden hidden" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="achievements.html" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Achievements</a>
+                <a href="attendance.html" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Attendance</a>
+                <a href="quiz.html" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Quiz</a>
+                <a href="resources.html" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Resources</a>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Main Content -->
+    <main class="pt-24 pb-12">
+        <div id="lecture-container" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h1 class="text-3xl font-bold text-gray-800 mb-8">Lectures</h1>
+            <!-- Lecture categories will be dynamically injected here -->
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- MOCK DATA ---
+            const lecturesData = {
+                punjabi: [
+                    { id: 'u3w5Uv2j6kM', title: 'Learn Punjabi Alphabets', description: 'Mastering the basics of Gurmukhi script.', thumbnail: 'https://placehold.co/600x400/f97316/ffffff?text=Punjabi+Alphabets' },
+                    { id: 'O7aDXgD5o9w', title: 'Common Punjabi Phrases', description: 'Everyday conversations for beginners.', thumbnail: 'https://placehold.co/600x400/f97316/ffffff?text=Common+Phrases' },
+                    { id: '1uR0IMfBunk', title: 'Punjabi Grammar Essentials', description: 'Understanding sentence structure.', thumbnail: 'https://placehold.co/600x400/f97316/ffffff?text=Grammar' },
+                    { id: '1oajyUa8s5Y', title: 'Punjabi Story Time', description: 'Listening practice with folk tales.', thumbnail: 'https://placehold.co/600x400/f97316/ffffff?text=Story+Time' },
+                    { id: '5qLuC83A5yQ', title: 'Writing in Punjabi', description: 'Practice forming words and sentences.', thumbnail: 'https://placehold.co/600x400/f97316/ffffff?text=Writing' },
+                    { id: 'rL0eMwgA-9E', title: 'Advanced Punjabi Vocabulary', description: 'Expanding your word bank.', thumbnail: 'https://placehold.co/600x400/f97316/ffffff?text=Vocabulary' },
+                    { id: 'xN9-S2tq2hA', title: 'Punjabi Culture & Language', description: 'Connect language with cultural context.', thumbnail: 'https://placehold.co/600x400/f97316/ffffff?text=Culture' }
+                ],
+                hindi: [
+                    { id: 'Jz2o_Pudwjc', title: 'Hindi Varnamala for Beginners', description: 'Introduction to the Devanagari script.', thumbnail: 'https://placehold.co/600x400/10b981/ffffff?text=Hindi+Varnamala' },
+                    { id: '2cO6zpLzJgU', title: 'Daily Hindi Conversations', description: 'Simple dialogues for everyday use.', thumbnail: 'https://placehold.co/600x400/10b981/ffffff?text=Conversations' },
+                    { id: 'D-eT2gX_gZc', title: 'Essential Hindi Grammar', description: 'Learn verbs, nouns, and tenses.', thumbnail: 'https://placehold.co/600x400/10b981/ffffff?text=Grammar' },
+                    { id: '0pCslO3A4-M', title: 'Reading Hindi Stories', description: 'Improve your reading comprehension.', thumbnail: 'https://placehold.co/600x400/10b981/ffffff?text=Reading' },
+                    { id: '5Tj_K2qawg8', title: 'Mastering Hindi Writing', description: 'From letters to paragraphs.', thumbnail: 'https://placehold.co/600x400/10b981/ffffff?text=Writing' },
+                    { id: 'R342wL5vGJc', title: 'Hindi for Business', description: 'Professional communication skills.', thumbnail: 'https://placehold.co/600x400/10b981/ffffff?text=Business' },
+                    { id: 'zch4s428W-k', title: 'Bollywood Song Meanings', description: 'Learn Hindi through music.', thumbnail: 'https://placehold.co/600x400/10b981/ffffff?text=Music' }
+                ],
+                english: [
+                    { id: 'juKd26qkNAw', title: 'English Tenses Explained', description: 'Master past, present, and future.', thumbnail: 'https://placehold.co/600x400/3b82f6/ffffff?text=English+Tenses' },
+                    { id: 'u2yA8t0soO8', title: 'Advanced English Vocabulary', description: 'Learn new words to express yourself.', thumbnail: 'https://placehold.co/600x400/3b82f6/ffffff?text=Vocabulary' },
+                    { id: 'd2ftcbDHM6U', title: 'English Pronunciation Practice', description: 'Improve your accent and clarity.', thumbnail: 'https://placehold.co/600x400/3b82f6/ffffff?text=Pronunciation' },
+                    { id: 'o1_s32Wn8L8', title: 'Formal vs. Informal English', description: 'Knowing when to use which style.', thumbnail: 'https://placehold.co/600x400/3b82f6/ffffff?text=Styles' },
+                    { id: 'JqgG_j-a20c', title: 'IELTS Speaking Masterclass', description: 'Tips and tricks for the exam.', thumbnail: 'https://placehold.co/600x400/3b82f6/ffffff?text=IELTS' },
+                    { id: 'mS5WYpP9TPA', title: 'English Idioms & Phrases', description: 'Sound like a native speaker.', thumbnail: 'https://placehold.co/600x400/3b82f6/ffffff?text=Idioms' },
+                    { id: 'oI-d24K2-qM', title: 'Business English Writing', description: 'Crafting professional emails and reports.', thumbnail: 'https://placehold.co/600x400/3b82f6/ffffff?text=Writing' }
+                ],
+                math: [
+                    { id: 'hEtuqE48w4w', title: 'Algebra Basics', description: 'Understanding variables and equations.', thumbnail: 'https://placehold.co/600x400/8b5cf6/ffffff?text=Algebra' },
+                    { id: 'd-q_g5eT-mY', title: 'Introduction to Calculus', description: 'The fundamentals of derivatives.', thumbnail: 'https://placehold.co/600x400/8b5cf6/ffffff?text=Calculus' },
+                    { id: 'X_1R3_0dkcQ', title: 'Geometry: Shapes and Angles', description: 'Exploring the world of geometry.', thumbnail: 'https://placehold.co/600x400/8b5cf6/ffffff?text=Geometry' },
+                    { id: 'bgaIIkyZp14', title: 'Statistics for Beginners', description: 'Understanding data and probability.', thumbnail: 'https://placehold.co/600x400/8b5cf6/ffffff?text=Statistics' },
+                    { id: 'q5PDsS52nNU', title: 'Trigonometry Made Easy', description: 'Sine, Cosine, Tangent and more.', thumbnail: 'https://placehold.co/600x400/8b5cf6/ffffff?text=Trigonometry' },
+                    { id: 'C_q-ykh0UA4', title: 'The Beauty of Fractions', description: 'A deep dive into fractional math.', thumbnail: 'https://placehold.co/600x400/8b5cf6/ffffff?text=Fractions' },
+                    { id: 'NybHckSEQBI', title: 'Solving Word Problems', description: 'Strategies for real-world math.', thumbnail: 'https://placehold.co/600x400/8b5cf6/ffffff?text=Word+Problems' }
+                ]
+            };
+
+            // --- DOM ELEMENTS ---
+            const lectureContainer = document.getElementById('lecture-container');
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            // --- RENDER FUNCTION ---
+            function renderLectures() {
+                lectureContainer.innerHTML = '<h1 class="text-3xl font-bold text-gray-800 mb-8">Lectures</h1>'; // Reset but keep title
+                
+                for (const category in lecturesData) {
+                    const videos = lecturesData[category];
+                    const categoryTitle = category.charAt(0).toUpperCase() + category.slice(1);
+
+                    let videoCardsHTML = '';
+                    videos.forEach(video => {
+                        // Use the custom thumbnail if it exists, otherwise use the YouTube default
+                        const thumbnailUrl = video.thumbnail ? video.thumbnail : `https://img.youtube.com/vi/${video.id}/mqdefault.jpg`;
+                        
+                        videoCardsHTML += `
+                            <!-- Video Card -->
+                            <div class="flex-none w-72 bg-white rounded-lg shadow-md overflow-hidden transform hover:-translate-y-1 transition-transform duration-300 cursor-pointer">
+                                <img src="${thumbnailUrl}" alt="${video.title}" class="w-full h-36 object-cover">
+                                <div class="p-4">
+                                    <h3 class="font-semibold text-gray-800 truncate">${video.title}</h3>
+                                    <p class="text-sm text-gray-600 mt-1 h-10 overflow-hidden">${video.description}</p>
+                                </div>
+                            </div>
+                        `;
+                    });
+
+                    const sectionHTML = `
+                        <section class="mb-12">
+                            <h2 class="text-2xl font-bold text-gray-700 mb-4">${categoryTitle}</h2>
+                            <div class="flex overflow-x-auto space-x-6 pb-4 horizontal-scroll">
+                                ${videoCardsHTML}
+                            </div>
+                        </section>
+                    `;
+                    lectureContainer.innerHTML += sectionHTML;
+                }
+            }
+            
+            // --- EVENT LISTENERS ---
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // --- INITIALIZATION ---
+            renderLectures();
+        });
+    </script>
+</body>
+</html>
+

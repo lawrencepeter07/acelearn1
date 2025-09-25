@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ਡੈਸ਼ਬੋਰਡ - ਸਮਾਰਟ ਲਰਨਿੰਗ ਹੱਬ</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Paaji+2:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Baloo Paaji 2', sans-serif;
+            background-color: #f0f4f8;
+        }
+        .horizontal-scroll {
+            scrollbar-width: thin;
+            scrollbar-color: #06b6d4 #e5e7eb;
+        }
+        .horizontal-scroll::-webkit-scrollbar {
+            height: 8px;
+        }
+        .horizontal-scroll::-webkit-scrollbar-track {
+            background: #e5e7eb;
+            border-radius: 10px;
+        }
+        .horizontal-scroll::-webkit-scrollbar-thumb {
+            background-color: #06b6d4;
+            border-radius: 10px;
+            border: 2px solid #e5e7eb;
+        }
+        .card-border-punjabi { border-top: 4px solid #f97316; }
+        .card-border-hindi { border-top: 4px solid #3b82f6; }
+        .card-border-english { border-top: 4px solid #ef4444; }
+        .card-border-math { border-top: 4px solid #22c55e; }
+    </style>
+</head>
+<body class="bg-gray-100">
+
+    <!-- Navigation Bar -->
+    <nav class="bg-white shadow-md fixed top-0 left-0 right-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <a href="lectures.punjabi.html" class="flex items-center space-x-2">
+                        <svg class="h-8 w-8 text-cyan-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.627 48.627 0 0 1 12 20.904a48.627 48.627 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.57 50.57 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5" /></svg>
+                        <span class="text-xl font-bold text-gray-800">ਸਮਾਰਟ ਹੱਬ</span>
+                    </a>
+                </div>
+                <!-- Desktop Navigation Links -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="achievements.punjabi.html" class="text-gray-600 hover:bg-cyan-600 hover:text-white px-3 py-2 rounded-md text-sm font-medium">ਪ੍ਰਾਪਤੀਆਂ</a>
+                        <a href="attendance.punjabi.html" class="text-gray-600 hover:bg-cyan-600 hover:text-white px-3 py-2 rounded-md text-sm font-medium">ਹਾਜ਼ਰੀ</a>
+                        <a href="quiz.punjabi.html" class="text-gray-600 hover:bg-cyan-600 hover:text-white px-3 py-2 rounded-md text-sm font-medium">ਕਵਿਜ਼</a>
+                        <a href="resources.punjabi.html" class="text-gray-600 hover:bg-cyan-600 hover:text-white px-3 py-2 rounded-md text-sm font-medium">ਸਰੋਤ</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="pt-24 pb-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h1 class="text-3xl font-extrabold text-gray-800 mb-8">ਸਾਰੇ ਵਿਸ਼ਿਆਂ ਦੇ ਲੈਕਚਰ</h1>
+
+            <!-- Lectures Sections -->
+            <div id="lectures-container" class="space-y-12">
+                <!-- Sections will be generated here by JS -->
+            </div>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            const lecturesData = {
+                punjabi: {
+                    title: "ਪੰਜਾਬੀ",
+                    borderColor: "card-border-punjabi",
+                    videos: [
+                        { title: "ਪੰਜਾਬੀ ਵਿਆਕਰਨ - ਭਾਗ ੧", description: "ਪੰਜਾਬੀ ਵਿਆਕਰਨ ਦੇ ਮੂਲ ਸਿਧਾਂਤ ਸਿੱਖੋ।", videoId: "bS5P_734_Ac" },
+                        { title: "ਅਖਾਣ ਅਤੇ ਮੁਹਾਵਰੇ", description: "ਆਮ ਵਰਤੇ ਜਾਣ ਵਾਲੇ ਪੰਜਾਬੀ ਅਖਾਣ।", videoId: "bS5P_734_Ac" },
+                        { title: "ਪੰਜਾਬੀ ਕਹਾਣੀਆਂ", description: "ਸਿੱਖਿਆਦਾਇਕ ਪੰਜਾਬੀ ਲੋਕ ਕਹਾਣੀਆਂ।", videoId: "bS5P_734_Ac" },
+                        { title: "ਗੁਰਮੁਖੀ ਲਿਪੀ", description: "ਗੁਰਮੁਖੀ ਅੱਖਰਾਂ ਦੀ ਬਣਤਰ ਅਤੇ ਉਚਾਰਨ।", videoId: "bS5P_734_Ac" },
+                        { title: "ਕਵਿਤਾ ਪਾਠ", description: "ਪ੍ਰਸਿੱਧ ਪੰਜਾਬੀ ਕਵੀਆਂ ਦੀਆਂ ਕਵਿਤਾਵਾਂ।", videoId: "bS5P_734_Ac" },
+                        { title: "ਲਗਾਂ-ਮਾਤਰਾਵਾਂ", description: "ਪੰਜਾਬੀ ਵਿੱਚ ਸਵਰ ਧੁਨੀਆਂ ਨੂੰ ਸਮਝੋ।", videoId: "bS5P_734_Ac" },
+                        { title: "ਪੰਜਾਬੀ ਸੱਭਿਆਚਾਰ", description: "ਪੰਜਾਬ ਦੇ ਸੱਭਿਆਚਾਰ ਬਾਰੇ ਜਾਣਕਾਰੀ।", videoId: "bS5P_734_Ac" }
+                    ]
+                },
+                hindi: {
+                    title: "ਹਿੰਦੀ",
+                    borderColor: "card-border-hindi",
+                    videos: [
+                        { title: "हिन्दी व्याकरण - भाग १", description: "हिन्दी व्याकरण के मूल सिद्धांत सीखें।", videoId: "IOMpCzT-g3Q" },
+                        { title: "मुहावरे और लोकोक्तियाँ", description: "रोज़मर्रा के जीवन में प्रयुक्त मुहावरे।", videoId: "IOMpCzT-g3Q" },
+                        { title: "हिन्दी कहानियाँ", description: "नैतिक शिक्षा देने वाली हिन्दी कहानियाँ।", videoId: "IOMpCzT-g3Q" },
+                        { title: "देवनागरी लिपि", description: "देवनागरी अक्षरों की बनावट और उच्चारण।", videoId: "IOMpCzT-g3Q" },
+                        { title: "कविता पाठ", description: "प्रसिद्ध हिन्दी कवियों की कविताएँ।", videoId: "IOMpCzT-g3Q" },
+                        { title: "संख्याएँ और गिनती", description: "हिन्दी में गिनती कैसे करें।", videoId: "IOMpCzT-g3Q" },
+                        { title: "संज्ञा और सर्वनाम", description: "व्याकरण में संज्ञा और सर्वनाम की पहचान।", videoId: "IOMpCzT-g3Q" }
+                    ]
+                },
+                english: {
+                    title: "ਅੰਗਰੇਜ਼ੀ",
+                    borderColor: "card-border-english",
+                    videos: [
+                        { title: "Introduction to Tenses", description: "Learn the basic rules of English tenses.", videoId: "O_gY_8d3d20" },
+                        { title: "Vocabulary Building", description: "Tips to improve your English vocabulary.", videoId: "O_gY_8d3d20" },
+                        { title: "Speaking Practice", description: "Practice conversations for daily use.", videoId: "O_gY_8d3d20" },
+                        { title: "Grammar Rules", description: "Important grammar rules for writing.", videoId: "O_gY_8d3d20" },
+                        { title: "Essay Writing", description: "How to write a perfect essay.", videoId: "O_gY_8d3d20" },
+                        { title: "Common Mistakes", description: "Avoid common mistakes in English.", videoId: "O_gY_8d3d20" },
+                        { title: "Reading Skills", description: "Improve your reading comprehension.", videoId: "O_gY_8d3d20" }
+                    ]
+                },
+                math: {
+                    title: "ਗਣਿਤ",
+                    borderColor: "card-border-math",
+                    videos: [
+                        { title: "ਅਲਜਬਰਾ ਦੀ ਜਾਣ-ਪਛਾਣ", description: "ਅਲਜਬਰਾ ਦੀਆਂ ਮੂਲ ਧਾਰਨਾਵਾਂ।", videoId: "fNk_zzaMoSs" },
+                        { title: "ਜਿਓਮੈਟਰੀ ਦੇ ਸਿਧਾਂਤ", description: "ਆਕਾਰਾਂ ਅਤੇ ਕੋਣਾਂ ਬਾਰੇ ਸਿੱਖੋ।", videoId: "fNk_zzaMoSs" },
+                        { title: "ਤਿਕੋਣਮਿਤੀ ਦੇ ਫਾਰਮੂਲੇ", description: "ਮਹੱਤਵਪੂਰਨ ਤਿਕੋਣਮਿਤੀ ਫਾਰਮੂਲੇ।", videoId: "fNk_zzaMoSs" },
+                        { title: "ਕੈਲਕੂਲਸ ਦੀਆਂ ਬੁਨਿਆਦਾਂ", description: "ਕੈਲਕੂਲਸ ਦੀ ਸ਼ੁਰੂਆਤ।", videoId: "fNk_zzaMoSs" },
+                        { title: "ਸੰਭਾਵਨਾ", description: "ਸੰਭਾਵਨਾ ਦੇ ਸਵਾਲਾਂ ਨੂੰ ਕਿਵੇਂ ਹੱਲ ਕਰੀਏ।", videoId: "fNk_zzaMoSs" },
+                        { title: "ਅੰਕੜਾ ਵਿਗਿਆਨ", description: "ਡਾਟਾ ਦਾ ਵਿਸ਼ਲੇਸ਼ਣ ਕਰਨਾ ਸਿੱਖੋ।", videoId: "fNk_zzaMoSs" },
+                        { title: "ਮੈਟਰਿਕਸ", description: "ਮੈਟਰਿਕਸ ਅਤੇ ਉਹਨਾਂ ਦੇ ਓਪਰੇਸ਼ਨ।", videoId: "fNk_zzaMoSs" }
+                    ]
+                }
+            };
+
+            const container = document.getElementById('lectures-container');
+
+            function createVideoCard(video, borderColor) {
+                return `
+                    <div class="flex-shrink-0 w-80 bg-white rounded-xl shadow-lg transform hover:-translate-y-2 transition-transform duration-300 ease-in-out ${borderColor}">
+                        <div class="p-5 flex flex-col h-full">
+                            <h3 class="text-lg font-bold text-gray-800 mb-2 flex-grow">${video.title}</h3>
+                            <p class="text-gray-600 text-sm mb-4 h-10">${video.description}</p>
+                            <a href="https://www.youtube.com/watch?v=${video.videoId}" target="_blank" class="mt-auto inline-block bg-cyan-600 text-white font-semibold px-4 py-2 rounded-lg text-sm hover:bg-cyan-700 text-center">
+                                ਲੈਕਚਰ ਦੇਖੋ
+                            </a>
+                        </div>
+                    </div>
+                `;
+            }
+
+            function renderLectures() {
+                container.innerHTML = '';
+                for (const key in lecturesData) {
+                    const sectionData = lecturesData[key];
+                    const section = document.createElement('section');
+                    
+                    let videoCardsHTML = '';
+                    sectionData.videos.forEach(video => {
+                        videoCardsHTML += createVideoCard(video, sectionData.borderColor);
+                    });
+
+                    section.innerHTML = `
+                        <h2 class="text-2xl font-bold text-gray-800 mb-4">${sectionData.title}</h2>
+                        <div class="flex space-x-6 pb-4 overflow-x-auto horizontal-scroll">
+                            ${videoCardsHTML}
+                        </div>
+                    `;
+                    container.appendChild(section);
+                }
+            }
+
+            renderLectures();
+        });
+    </script>
+
+</body>
+</html>
+
